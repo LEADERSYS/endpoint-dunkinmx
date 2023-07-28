@@ -21,7 +21,7 @@ app.use(express.urlencoded({extended:true}));
 
 // Rutas principales
 app.use('/api/v1/data', dataRouter);
-app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/verification', authRoute);
 
 
 // Ruta para verificar que el Endpoint funcione
