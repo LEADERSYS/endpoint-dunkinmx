@@ -1,9 +1,9 @@
-//import { executeQueryAll } from "../database/executeQueries/queryExecuteAll.js";
+const executeQueryAll = require('../model/executeQueries/QueryExecuteAll.js');
 
 //TODO: Consulta las sucursales en la base de datos
 const obtenerSucursales = async (req, res) => {
    try {
-    /*const querySucursales = "SELECT id, nombre FROM negocio";
+    const querySucursales = "SELECT id, nombre FROM negocio";
     let sucursales = await executeQueryAll(querySucursales);
 
     if(sucursales === null){
@@ -15,13 +15,7 @@ const obtenerSucursales = async (req, res) => {
         message: 'Success',
         data: sucursales,
       }
-      );*/
-      res.status(200).json(
-        {
-          message: 'Success',
-          data: 'Obteniendo Sucursales',
-        }
-        );
+      );
    } catch (error) {
     res.status(500).json({message: 'Ha ocurrido un error al obtener las sucursales'});
    }
