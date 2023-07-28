@@ -1,15 +1,25 @@
 const express = require('express');
+const cors = require('cors');
+
+const dataRouter = require('./app/v1/routes/dataRoute');
+
+
 const app = express();
 
 const puerto = 3000;
 
-// Rutas principales
-app.get('/', (req, res) => {
-  res.send('¡Hola, mundo! Esta es la página de inicio.');
-});
+// Configuracion del Endpoint
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({extended:true}));
 
-app.get('/otra-pagina', (req, res) => {
-  res.send('Bienvenido a otra página. Aquí puedes agregar más contenido.');
+// Rutas principales
+app.use('/api/v1', dataRouter);
+
+
+// Ruta para verificar que el Endpoint funcione
+app.get('/api', (req, res) => {
+  res.send('Bienvenido a Dunkin MX.');
 });
 
 // Ruta por defecto para manejar URLs desconocidas
