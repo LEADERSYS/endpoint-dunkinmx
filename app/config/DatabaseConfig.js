@@ -23,20 +23,21 @@ const configDev = {
 };
 
 // Crear un pool de conexiones
-const pool = new mssql.ConnectionPool(configProd);
+const pool = new mssql.ConnectionPool(configDev);
 //export const pool = new mssql.ConnectionPool(configDev);
 
 // Función para conectar a la base de datos
-const connectToDatabase = async () => {
+async function connectToDatabase() {
   try {
     await pool.connect();
-    console.log('Conexión exitosa a la base de datos');
+    console.log('Conexión exitosa a la base de datos de Dunkin MX');
   } catch (error) {
-    console.error('Error al conectar a la base de datos:', error);
+    console.error('Error al conectar a la base de datos de Dunkin MX:', error);
   }
 };
 
 module.exports = {
     pool,
+    configDev,
     connectToDatabase
 }

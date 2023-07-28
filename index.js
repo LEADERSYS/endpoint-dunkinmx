@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const dataRouter = require('./app/v1/routes/dataRoute');
+const { connectToDatabase } = require('./app/config/DatabaseConfig');
 
 
 const app = express();
@@ -29,5 +30,6 @@ app.use((req, res) => {
 
 // Iniciar el servidor y hacer que escuche en el puerto especificado
 app.listen(puerto, () => {
+  connectToDatabase();
   console.log(`Servidor en funcionamiento en http://localhost:${puerto}`);
 });

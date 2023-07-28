@@ -1,6 +1,9 @@
-const pool = require('../../config/DatabaseConfig');
+const sql = require('mssql');
+const DB = require('../../config/DatabaseConfig');
 
-const executeQueryAll = async (query) => {
+const pool = new sql.ConnectionPool(DB.configDev);
+
+async function executeQueryAll(query) {
     let poolConnection;
 
     try {
