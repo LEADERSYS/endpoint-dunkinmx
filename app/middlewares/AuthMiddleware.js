@@ -20,14 +20,14 @@ const authenticateToken = async (req, res, next) =>{
 
     if(!usuarioValido){
       return res.status(403).json({
-        message: 'Token de autenticación inválido'
+        message: 'Autenticación inválida'
       });
     }
 
     next();
   } catch (error) {
     res.status(500).json({
-      message: 'Ha ocurrido un error al autenticar el token de acceso'
+      message: 'Error al autenticarse con el servicio'
     });
   }  
 };
